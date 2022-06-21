@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+.butterfly {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  transform-origin: center;
+  animation: fly 20s forwards linear infinite;
+
+  .tentacles {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 23%;
+    top: 23%;
+    background-color: transparent;
+    border-radius: 50% 50% 0 50%;
+    border: 3px solid;
+    border-color: transparent black black transparent;
+  }
+
+  .head {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 40.5%;
+    top: 40.7%;
+    background-color: rgb(39, 37, 37);
+    border-radius: 50%;
+  }
+
+  .body1 {
+    position: absolute;
+    height: 100px;
+    width: 20px;
+    left: 58.2%;
+    top: 50%;
+    background-color: rgb(31, 28, 28);
+    border-radius: 100px 100px;
+    transform: rotate(-45deg);
+  }
+
+  .body {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background-color: rgb(41, 39, 39);
+    border-radius: 0 100px 0 100px;
+  }
+
+  .wings {
+    position: absolute;
+    transform-origin: center;
+    transform: rotate(-45deg) scale(1.7);
+    top: 27%;
+    left: 27%;
+    height: 200px;
+    width: 200px;
+
+    .wing {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      background: royalblue;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .wing-top-left {
+      top: 15px;
+      left: -5px;
+      border-radius: 25% 100% 0 50%;
+      background: rgb(86, 91, 117);
+      background: linear-gradient(-90deg, rgb(0, 40, 238) 0%, rgba(175, 179, 198, 1) 42%, rgba(149, 158, 170, 1) 68%, rgba(3, 25, 80, 1) 96%);
+      transform-origin: bottom right;
+      transform: rotate(-15deg);
+      animation: wing-top-left-animation 500ms forwards alternate infinite;
+      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes wing-top-left-animation {
+      from {
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
+        transform: rotate(-15eg);
+      }
+
+      to {
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0);
+        transform: rotate(-15deg) rotateY(60deg);
+      }
+    }
+
+    .wing-top-right {
+      top: 15px;
+      left: 103px;
+      border-radius: 100% 25% 50% 0;
+      background: rgb(86, 91, 117);
+      background: linear-gradient(90deg, rgb(0, 40, 238) 0%, rgba(175, 179, 198, 1) 42%, rgba(149, 158, 170, 1) 68%, rgba(3, 25, 80, 1) 96%);
+      transform-origin: bottom left;
+      transform: rotate(15deg);
+      animation: wing-top-right-animation 500ms forwards alternate infinite;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes wing-top-right-animation {
+      from {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transform: rotate(15deg);
+      }
+
+      to {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+        transform: rotate(15deg) rotateY(60deg);
+      }
+    }
+
+    .wing-bottom-left {
+      top: 100px;
+      border-radius: 90% 0 70% 50%;
+      background: rgb(86, 91, 117);
+      background: linear-gradient(225deg, rgb(29, 59, 207) 0%, rgba(175, 179, 198, 1) 42%, rgba(149, 158, 170, 1) 68%, rgba(3, 25, 80, 1) 96%);
+      transform-origin: top right;
+      transform: rotate(7deg);
+      animation: wing-bottom-left-animation 500ms forwards alternate infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes wing-bottom-left-animation {
+      from {
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
+        transform: rotate(7eg);
+      }
+
+      to {
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0);
+        transform: rotate(7deg) rotateY(55deg);
+      }
+    }
+
+    .wing-bottom-right {
+      top: 100px;
+      left: 100px;
+      border-radius: 0 90% 50% 70%;
+      background: rgb(86, 91, 117);
+      background: linear-gradient(135deg, rgb(29, 59, 207) 0%, rgba(175, 179, 198, 1) 42%, rgba(149, 158, 170, 1) 68%, rgba(3, 25, 80, 1) 96%);
+      transform-origin: top left;
+      transform: rotate(-7deg);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      animation: wing-bottom-right-animation 500ms forwards alternate infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes wing-bottom-right-animation {
+      from {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transform: rotate(-7eg);
+      }
+
+      to {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+        transform: rotate(-7deg) rotateY(55deg);
+      }
+    }
+  }
+}
+
+@keyframes fly {
+
+  0%, 100% {
+    top: -450px;
+    left: -500px;
+    transform: rotate(180deg) scale(.5);
+  }
+
+  20% {
+    top: 750px;
+    left: calc(45% - 300px);
+    transform: rotate(180deg) scale(0.9);
+  }
+
+  25% {
+    top: 750px;
+    left: calc(45% - 300px);
+    transform: rotate(95deg) scale(0.9);
+  }
+
+  45% {
+    top: 100px;
+    left: calc(110%);
+    transform: rotate(95deg) scale(.8);
+  }
+
+  50% {
+    top: 100px;
+    left: calc(110%);
+    transform: rotate(-15deg) scale(.8);
+  }
+
+  75% {
+    top: -350px;
+    left: -30%;
+    transform: rotate(-15deg) scale(.8);
+  }
+}
+
+.petal {
+  height: 100px;
+  width: 50px;
+  background-color: purple;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60% ;
+}
